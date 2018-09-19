@@ -596,7 +596,9 @@
 
             if (scope.matchClass) {
               formattedText = findMatchString(text, str);
-              formattedDesc = findMatchString(description, str);
+              if(scope.matchDescription) {
+                formattedDesc = findMatchString(description, str);
+              }
             }
 
             scope.results[scope.results.length] = {
@@ -821,7 +823,8 @@
         fieldTabindex: '@',
         inputName: '@',
         focusFirst: '@',
-        parseInput: '&'
+        parseInput: '&',
+        matchDescription: '='
       },
       templateUrl: function(element, attrs) {
         return attrs.templateUrl || TEMPLATE_URL;
